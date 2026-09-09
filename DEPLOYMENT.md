@@ -22,8 +22,8 @@ Neon starts empty. Existing local H2 accounts, comments, and messages are **not 
 ## Frontend and integration
 
 1. Import the same GitHub repository in Vercel, with **Root Directory** set to `frontend`.
-2. The API proxy defaults to `https://metsalu-api.onrender.com`. Optionally set `RENDER_API_ORIGIN` to override it with another Render HTTPS origin, without a path or credentials. Remove or correct any old placeholder value in Vercel.
-3. Deploy. `vercel.mjs` configures the Angular build, output directory, API proxy, and client-side route fallback.
+2. The API proxy in `frontend/vercel.json` points to `https://metsalu-api.onrender.com`. No frontend environment variable is required. Any old `RENDER_API_ORIGIN` setting is unused and can be removed.
+3. Deploy. `vercel.json` configures the Angular build, output directory, API proxy, and client-side route fallback with literal destinations.
 4. Set Render's `FRONTEND_ORIGIN` to the resulting Vercel production origin and let Render restart.
 5. Visit the Vercel domain. Verify registration, login, member listing, comments/replies, private messages, and logout. Refresh a nested route to verify the SPA fallback. Test calls between two signed-in browsers.
 
