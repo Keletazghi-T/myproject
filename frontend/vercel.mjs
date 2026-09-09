@@ -1,6 +1,5 @@
-// Set RENDER_API_ORIGIN in Vercel, e.g. the HTTPS origin shown by your Render service.
-const value = process.env.RENDER_API_ORIGIN;
-if (!value) throw new Error('Set RENDER_API_ORIGIN to the HTTPS origin of your Render backend before deploying.');
+// Use the deployed backend by default; Vercel can override this for another environment.
+const value = process.env.RENDER_API_ORIGIN?.trim() || 'https://metsalu-api.onrender.com';
 const backend = new URL(value);
 if (backend.protocol !== 'https:' || backend.username || backend.password || backend.pathname !== '/' || backend.search || backend.hash) {
   throw new Error('RENDER_API_ORIGIN must be an HTTPS origin without credentials, a path, query, or fragment.');
