@@ -1,0 +1,19 @@
+target/
+backend/data/
+.idea/
+*.iml
+.classpath
+.project
+.settings/
+.vscode/
+# Local data, credentials, generated files
+backend/backups/
+**/node_modules/
+**/dist/
+**/.angular/
+**/.vercel/
+.env
+.env.*
+!.env.example
+*.log
+.DS_Store

@@ -1,0 +1,216 @@
+:host {
+	display: block;
+}
+
+.site-header {
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	gap: 1rem;
+	padding: 1.25rem clamp(1.25rem, 5vw, 4rem);
+	border-bottom: 1px solid #d9d3c5;
+	background: #f7f4ec;
+}
+
+.brand {
+	display: inline-flex;
+	align-items: center;
+	gap: 0.7rem;
+	color: #183b3b;
+	font: 500 0.9rem "IBM Plex Mono", monospace;
+	letter-spacing: 0.04em;
+	text-decoration: none;
+	text-transform: uppercase;
+}
+
+.brand-mark {
+	display: grid;
+	width: 2rem;
+	height: 2rem;
+	place-items: center;
+	background: #d4512d;
+	color: #fffaf1;
+	font-family: "DM Serif Display", Georgia, serif;
+	font-size: 1.3rem;
+	text-transform: none;
+}
+
+.header-caption {
+	color: #71807b;
+	font: 0.7rem "IBM Plex Mono", monospace;
+	letter-spacing: 0.08em;
+	text-transform: uppercase;
+}
+
+.page-shell {
+	min-height: calc(100vh - 4.5rem);
+	display: grid;
+	place-items: center;
+	padding: 2rem;
+}
+
+.status-panel {
+	width: min(100%, 42rem);
+	padding: clamp(2rem, 6vw, 4.5rem);
+	background: #f7f4ec;
+	border: 1px solid #d9d3c5;
+	box-shadow: 12px 12px 0 #d9d3c5;
+}
+
+.eyebrow,
+.label,
+.endpoint {
+	margin: 0;
+	font-family: "IBM Plex Mono", monospace;
+	text-transform: uppercase;
+	letter-spacing: 0.08em;
+	font-size: 0.72rem;
+}
+
+.eyebrow {
+	color: #d4512d;
+}
+
+h1 {
+	margin: 1rem 0 0.75rem;
+	color: #183b3b;
+	font-family: "DM Serif Display", Georgia, serif;
+	font-size: clamp(3rem, 10vw, 6rem);
+	font-weight: 400;
+	line-height: 0.95;
+}
+
+.intro {
+	max-width: 28rem;
+	margin: 0;
+	color: #4f5b58;
+	font-size: 1.15rem;
+	line-height: 1.6;
+}
+
+.action-row {
+	display: flex;
+	flex-wrap: wrap;
+	gap: 0.75rem;
+	margin-top: 2rem;
+}
+
+.button {
+	border: 0;
+	padding: 0.85rem 1.1rem;
+	font: 500 0.78rem "IBM Plex Mono", monospace;
+	text-transform: uppercase;
+	letter-spacing: 0.06em;
+	cursor: pointer;
+}
+
+.button-primary {
+	background: #d4512d;
+	color: #fffaf1;
+}
+
+.button-secondary {
+	background: #efb443;
+	color: #183b3b;
+}
+
+.button:hover,
+.text-button:hover {
+	filter: brightness(1.08);
+}
+
+.connection-card {
+	display: flex;
+	gap: 1rem;
+	align-items: flex-start;
+	margin-top: 2.5rem;
+	padding: 1.25rem;
+	background: #183b3b;
+	color: #f7f4ec;
+}
+
+.status-dot {
+	width: 0.7rem;
+	height: 0.7rem;
+	flex: 0 0 auto;
+	margin-top: 0.25rem;
+	border-radius: 50%;
+	background: #efb443;
+	box-shadow: 0 0 0 5px rgba(239, 180, 67, 0.18);
+}
+
+.label {
+	color: #efb443;
+}
+
+.message {
+	margin: 0.5rem 0 0;
+	font-size: 1.05rem;
+	line-height: 1.5;
+}
+
+.endpoint {
+	margin-top: 1.5rem;
+	color: #71807b;
+}
+
+.auth-form,
+.login-note {
+	margin-top: 2rem;
+	padding-top: 2rem;
+	border-top: 1px solid #d9d3c5;
+}
+
+.form-heading h2 {
+	margin: 0.4rem 0 1.25rem;
+	font-size: 1.5rem;
+	font-weight: 500;
+}
+
+.auth-form label {
+	display: grid;
+	gap: 0.45rem;
+	margin-top: 1rem;
+	font-size: 0.8rem;
+	text-transform: uppercase;
+	letter-spacing: 0.06em;
+}
+
+.auth-form input {
+	width: 100%;
+	padding: 0.8rem;
+	border: 1px solid #b9b6a9;
+	background: #fffdf7;
+	color: #183b3b;
+	font: 1rem "IBM Plex Mono", monospace;
+}
+
+.auth-form .button {
+	margin-top: 1.25rem;
+}
+
+.success-message {
+	margin: 1rem 0 0;
+	color: #2d7652;
+	font-size: 0.85rem;
+}
+
+.error-message {
+	margin: 1rem 0 0;
+	color: #b33928;
+	font-size: 0.85rem;
+}
+
+.login-note p {
+	margin: 0.5rem 0 0;
+}
+
+.text-button {
+	margin-top: 1rem;
+	padding: 0;
+	border: 0;
+	background: transparent;
+	color: #d4512d;
+	font: 500 0.8rem "IBM Plex Mono", monospace;
+	cursor: pointer;
+}

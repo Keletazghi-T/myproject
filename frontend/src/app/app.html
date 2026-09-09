@@ -1,0 +1,107 @@
+<header class="site-header">
+  <a class="brand" href="/" aria-label="Metsalu Website home">
+    <span class="brand-mark" aria-hidden="true">M</span>
+    <span>Metsalu Website</span>
+  </a>
+  <span class="header-caption">Connected workspace</span>
+</header>
+
+@if (!loggedIn()) {
+<main class="page-shell">
+  <section class="status-panel" aria-label="Welcome to Metsalu">
+    <p class="eyebrow">መጻሉ ቀይሕኮር</p>
+    <p class="intro">This website is created by kulut Tesfamariam.</p>
+
+    <div class="action-row">
+      <button class="button button-primary" type="button" (click)="openAuth('login')">Login</button>
+      <button class="button button-secondary" type="button" (click)="openAuth('register')">Create account</button>
+    </div>
+
+    <div class="connection-card" aria-live="polite">
+      <span class="status-dot" aria-hidden="true"></span>
+      <div>
+        <p class="label">Backend response</p>
+        <p class="message">{{ backendMessage() }}</p>
+      </div>
+    </div>
+
+    <p class="endpoint">Connected to the Metsalu server</p>
+
+    @if (authMode() === 'register') {
+      <form class="auth-form" #registerForm="ngForm" (ngSubmit)="createAccount(registerForm)" [attr.aria-busy]="registering()">
+        <div class="form-heading">
+          <p class="label">New account</p>
+          <h2>Create your account</h2>
+        </div>
+
+        <label>
+          Name
+          <input name="name" [(ngModel)]="accountName" required maxlength="255" autocomplete="name" />
+        </label>
+
+        <label>
+          Email
+          <input name="email" type="email" email [(ngModel)]="accountEmail" required maxlength="255" autocomplete="email" />
+        </label>
+
+        <label>
+          Password
+          <input name="password" type="password" [(ngModel)]="accountPassword" required maxlength="255" aria-describedby="password-help" autocomplete="new-password" />
+        </label>
+
+        <p id="password-help">A password is required.</p>
+        <button class="button button-primary" type="submit" [disabled]="registering()">
+          {{ registering() ? 'Creating account…' : 'Create account' }}
+        </button>
+
+        @if (accountCreated()) {
+          <p class="success-message">{{ authMessage() }}</p>
+        }
+
+        @if (authError()) {
+          <p class="error-message" role="alert">{{ authError() }}</p>
+        }
+      </form>
+    }
+
+    @if (authMode() === 'login') {
+      <form class="auth-form" #loginForm="ngForm" (ngSubmit)="loginForm.valid && login()">
+        <div class="form-heading">
+          <p class="label">Welcome back</p>
+          <h2>Login to your account</h2>
+        </div>
+
+        <label>
+          Email
+          <input name="loginEmail" type="email" [(ngModel)]="loginEmail" required autocomplete="email" />
+        </label>
+
+        <label>
+          Password
+          <input name="loginPassword" type="password" [(ngModel)]="loginPassword" required autocomplete="current-password" />
+        </label>
+
+        <button class="button button-primary" type="submit">Login</button>
+
+        @if (authMessage() && !loginSubmitted()) {
+          <p class="success-message">{{ authMessage() }}</p>
+        }
+
+        @if (loginSubmitted()) {
+          <p class="success-message">{{ authMessage() }}</p>
+        }
+
+        @if (authError()) {
+          <p class="error-message" role="alert">{{ authError() }}</p>
+        }
+
+        <button class="text-button" type="button" (click)="openAuth('register')">Need an account? Create one</button>
+      </form>
+    }
+  </section>
+</main>
+}
+
+<router-outlet />
+
+@if (loggedIn()) { <app-voice /> }
